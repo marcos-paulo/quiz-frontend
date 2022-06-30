@@ -1,0 +1,85 @@
+// Layout Home
+#page-default {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  height: 100vh;
+  max-height: 100vh;
+
+  aside {
+    flex: 7;
+    background: #835afd;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 32px 100px;
+
+    img {
+      // min-height: 200px;
+      max-height: 320px;
+      max-width: 320px;
+    }
+
+    .content {
+      strong {
+        font: 700 36px 'Poppins', sans-serif;
+        line-height: 42px;
+        margin-top: 16px;
+      }
+
+      p {
+        font-size: 24px;
+        line-height: 32px;
+        margin-top: 16px;
+        color: #f8f8f8;
+      }
+    }
+  }
+
+  main {
+    flex: 8;
+    padding: 20px 20px;
+    // display: flex;
+    // flex-wrap: wrap;
+    // align-items: center;
+    // justify-content: center;
+  }
+}
+
+@media screen and (max-width: 669px) {
+  #page-default {
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+    aside {
+      flex: 5;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 32px 32px;
+
+      img {
+        max-height: 220px;
+        max-width: 220px;
+      }
+
+      .content {
+        margin-left: 32px;
+
+        strong {
+          font: 700 20px 'Poppins', sans-serif;
+        }
+
+        p {
+          font-size: 14px;
+          // line-height: 32px;
+          // margin-top: 16px;
+          // color: #f8f8f8;
+        }
+      }
+    }
+  }
+}

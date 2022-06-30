@@ -1,0 +1,30 @@
+main {
+  display: flex;
+  // flex-direction: column;
+  // flex-wrap: wrap;
+  // align-items: center;
+  // justify-content: center;
+
+  .item-group {
+    // background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-content: stretch; // organiza o espacamento entre as linhas
+    // align-items: baseline;
+    // flex-direction: column;
+
+    .item-group2 {
+      // background-color: cornflowerblue;
+      display: flex;
+      align-content: stretch;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+
+    .last-item {
+      // align-self: stretch;
+      // -self: flex-start;
+    }
+  }
+}
