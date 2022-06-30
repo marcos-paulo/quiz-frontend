@@ -1,7 +1,9 @@
 import axios from 'axios';
-import { FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { StringMappingType } from 'typescript';
+import { AppThunkDispatch } from '../../app/store';
+import { useSelectorQuiz } from '../../features/quiz/quizzersSlice';
 
 interface Quiz {
   id: string;
@@ -28,6 +30,8 @@ type QuizParams = {
 };
 export const AnswerQuiz = () => {
   const params = useParams<QuizParams>();
+  const quizzers = useSelectorQuiz();
+  const dispatch: AppThunkDispatch = useDispatch();
 
   // eslint-disable-next-line
   const [quiz, setQuiz] = useState<Quiz>();

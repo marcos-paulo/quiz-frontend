@@ -2,14 +2,10 @@ import { Link } from 'react-router-dom';
 import './index.scss';
 
 export const Card = (props: any) => {
-  // console.log(index, length);
-  const { title, description, link } = props;
-  console.log('teste', title, description, link);
-
+  const { title, link } = props;
   if (title && link && link.to && link.name) {
     return (
       <div className="card">
-        {/* <img src="..." className="card-img-top" alt="..."> */}
         <div className="card-body">
           <h5 className="card-title">{props.title}</h5>
           <p className="card-text">{props.description}</p>
@@ -21,5 +17,5 @@ export const Card = (props: any) => {
     );
   }
 
-  return <div className="card hiden"></div>;
+  return <div className="card hidden"></div>;
 };

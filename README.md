@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Warning: antes de executar este exemplo é necessário definir a variável de ambiente `REACT_APP_PATH_API` com o endereço da API, você poderá fazer isso, definindo a variável em um arquivo `.env` na raiz do projeto.
+
 ## Available Scripts
 
 In the project directory, you can run:
