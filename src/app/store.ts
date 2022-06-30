@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { AnyAction, configureStore, ThunkDispatch } from '@reduxjs/toolkit';
 import quizzersReducer from '../features/quiz/quizzersSlice';
 
 export const store = configureStore({
@@ -7,3 +7,4 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export type AppThunkDispatch = ThunkDispatch<RootState, any, AnyAction>;

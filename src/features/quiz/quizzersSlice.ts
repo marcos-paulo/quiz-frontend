@@ -1,4 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../app/store';
 
 export interface QuizzersState {
@@ -23,19 +25,34 @@ const initialState: QuizzersState = {
   quizzersList: [],
 };
 
+export const getAllQuizzers = createAsyncThunk(
+  'quizzers/getAllQuizzers',
+  async () => {
+    const path = process.env.REACT_APP_PATH_API;
+    const response = await axios.get<QuizState[]>(path + '/quiz');
+    console.log(response.data);
+    return response.data;
+  }
+);
+
 export const quizzersSlice = createSlice({
   name: 'quizzers',
   initialState,
   reducers: {
     adicionar: (state, action) => {
-      console.log(action.payload);
       state.quizzersList = action.payload;
     },
+  },
+  extraReducers(builder) {
+    builder.addCase(getAllQuizzers.fulfilled, (state, action) => {
+      return { quizzersList: action.payload };
+    });
   },
 });
 
 export const { adicionar } = quizzersSlice.actions;
 
-export const selectorQuiz = (state: RootState) => state.quizzers.quizzersList;
+export const useSelectorQuiz = () =>
+  useSelector((state: RootState) => state.quizzers.quizzersList);
 
 export default quizzersSlice.reducer;
