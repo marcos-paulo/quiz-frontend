@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { FormEvent, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Card } from '../../components/Card';
+import { adicionar } from '../../features/quiz/quizzersSlice';
 import './index.scss';
 
 interface Quiz {
@@ -18,7 +20,7 @@ interface Question {
 
 export const Home = () => {
   const [quizzes, setQuizzes] = useState<Quiz[]>([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     axios({
       method: 'get',
@@ -26,6 +28,7 @@ export const Home = () => {
       responseType: 'json',
     })
       .then((response) => {
+        dispatch(adicionar(response.data));
         setQuizzes(response.data);
       })
       .catch((error) => console.error(error.response.body));
@@ -40,8 +43,6 @@ export const Home = () => {
       <div className="item-group">
         <div className="item-group2">
           {quizzes.map((value, index, array) => (
-            // <div className="item">
-            // </div>
             <Card
               key={value.title + value.id}
               title={value.title}

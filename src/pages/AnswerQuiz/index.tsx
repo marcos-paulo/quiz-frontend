@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { StringMappingType } from 'typescript';
 
 interface Quiz {
   id: string;
